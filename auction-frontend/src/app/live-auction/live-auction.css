@@ -1,0 +1,158 @@
+/* Custom Colors */
+:root {
+  --auction-dark-bg: #221c32;
+  --card-white: #ffffff;
+  --primary-blue: #5c6bc0;
+  --timer-red: #e64a19;
+  --bid-orange: #ff9900;
+  --running-bg: #fce4ec;
+  --running-color: #e91e63;
+  --sold-price-color: #ff9900;
+  --text-dark: #333;
+  --text-muted-dark: #666;
+}
+
+/* Base Layout and Typography */
+.dashboard-container {
+  background-color: var(--auction-dark-bg);
+  min-height: 100vh;
+  color: #fff; /* Default text color for the container */
+}
+
+/* Header Text Styles */
+.header-title, .header-subtitle {
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Angular Material Card Overrides */
+.mat-card {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Darker shadow for contrast */
+  background-color: var(--card-white);
+  color: var(--text-dark); /* Default card text color */
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Section Headings */
+.card-section-title, .section-heading {
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+/* Bootstrap Utility Overrides for Custom Colors */
+.text-primary { color: var(--primary-blue) !important; }
+.text-warning { color: var(--sold-price-color) !important; }
+
+/* ------------------------------------
+ * Player Card Styles
+ * ------------------------------------ */
+.player-card {
+  text-align: center;
+}
+
+.player-card .player-image-wrapper {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+}
+
+.player-card .player-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.player-card .timer-text {
+  color: var(--timer-red);
+  font-weight: 700;
+  margin: 5px 0 10px;
+}
+
+.player-card .current-bid-text {
+  color: var(--bid-orange);
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+.player-card .player-divider {
+  border-top: 1px solid #eee;
+  margin: 10px 0;
+}
+
+.player-card .player-details p {
+  color: var(--text-muted-dark);
+}
+
+/* ------------------------------------
+ * Live Activity Card Styles
+ * ------------------------------------ */
+.live-activity-card .activity-time {
+  font-size: 0.7rem;
+  margin-top: -5px;
+  margin-bottom: 10px !important;
+}
+
+/* ------------------------------------
+ * Place Bid Card Styles
+ * ------------------------------------ */
+.place-bid-card .bid-amount-text {
+  color: var(--primary-blue);
+  font-size: 3.5rem;
+}
+
+/* Bid Increment Buttons */
+.place-bid-card .bid-btn {
+  color: var(--primary-blue);
+  border-color: var(--primary-blue);
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Place Bid Button */
+.place-bid-card .place-bid-btn {
+  background-color: var(--primary-blue);
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+/* Remove Material extra padding below input */
+.place-bid-card .custom-bid-input .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+/* ------------------------------------
+ * Auction Controls Card Styles
+ * ------------------------------------ */
+.auction-controls-card .control-buttons-group {
+  align-items: center;
+}
+
+.auction-controls-card .control-status-btn {
+  background-color: var(--running-bg) !important;
+  color: var(--running-color) !important;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 600;
+  text-transform: none;
+  line-height: 1;
+}
+
+.auction-controls-card .control-btn {
+  color: var(--text-dark);
+  text-transform: none;
+  font-weight: 500;
+  min-width: 80px;
+  border-radius: 6px;
+}
+
+.auction-controls-card .control-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* ------------------------------------
+ *

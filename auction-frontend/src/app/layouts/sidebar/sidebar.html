@@ -1,0 +1,32 @@
+<nav class="d-flex flex-column p-3 bg-white border-end shadow-sm" style="height: 92vh;"
+  [class.-translate-x-full]="!sidebarOpen" [class.translate-x-0]="sidebarOpen">
+  <div class="text-gray-500 text-xs font-bold uppercase mb-4 px-2 tracking-wider">
+    Organizer Tools
+  </div>
+
+  <!-- Sidebar Links -->
+  <a routerLink="organizer-dashboard" routerLinkActive="active" class="sidebar-link">
+    <mat-icon class="mr-3">dashboard</mat-icon>
+    <span class="font-medium">Dashboard</span>
+  </a>
+
+  <a routerLink="eventsetup" routerLinkActive="active" class="sidebar-link">
+    <mat-icon class="mr-3">event</mat-icon>
+    <span class="font-medium">Event Setup</span>
+  </a>
+
+  <a routerLink="live-auction" routerLinkActive="active" class="sidebar-link">
+    <mat-icon class="mr-3">gavel</mat-icon>
+    <span class="font-medium">Live Auction</span>
+  </a>
+
+
+  <div class="mt-auto pt-3 border-top">
+    <button mat-raised-button color="warn" class="w-100 mb-2 fw-medium shadow-sm">
+      Logout
+    </button>
+    <footer class="text-center text-muted small">
+      © 2025 Auction System. All rights reserved.
+    </footer>
+  </div>
+</nav>

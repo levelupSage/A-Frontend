@@ -1,0 +1,114 @@
+<div class="container-fluid p-4 dashboard-container">
+
+  <h2 class="header-title">{{ auctionTitle }}</h2>
+  <p class="header-subtitle mb-4">{{ auctionStatus }}</p>
+  
+  <div class="row">
+    
+    <div class="col-md-4 mb-4">
+      <mat-card class="player-card text-center p-4 h-100">
+        <div class="player-image-wrapper my-3 mx-auto">
+          <img [src]="playerAlpha.image" alt="Player Alpha" class="img-fluid">
+        </div>
+        <h3 class="player-name">{{ playerAlpha.name }}</h3>
+        <h1 class="display-3 fw-bold timer-text">{{ playerAlpha.timer }}</h1>
+        <p class="lead current-bid-text">Current Bid: **${{ playerAlpha.currentBid | number }}**</p>
+        <hr class="player-divider">
+        <div class="row small text-start player-details">
+          <div class="col-6">
+            <p class="mb-1">Age: {{ playerAlpha.age }}</p>
+            <p class="mb-1">Sport: {{ playerAlpha.sport }}</p>
+            <p class="mb-0">Bowling Style: {{ playerAlpha.bowlingStyle }}</p>
+          </div>
+          <div class="col-6">
+            <p class="mb-1">Nationality: {{ playerAlpha.nationality }}</p>
+            <p class="mb-0">Batting Style: {{ playerAlpha.battingStyle }}</p>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-md-8">
+      <div class="row">
+
+        <div class="col-md-6 mb-4">
+          <mat-card class="live-activity-card p-4 h-100">
+            <h4 class="card-section-title">Live Activity</h4>
+            <div class="activity-log small">
+              <p class="text-muted mb-1" [innerHtml]="liveActivity[0].text"></p>
+              <p class="text-muted activity-time mb-3">{{ liveActivity[0].time }}</p>
+              
+              <p class="text-muted mb-1" [innerHtml]="liveActivity[1].text"></p>
+              <p class="text-muted activity-time mb-0">{{ liveActivity[1].time }}</p>
+            </div>
+          </mat-card>
+        </div>
+        
+        <div class="col-md-6 mb-4">
+          <mat-card class="place-bid-card p-4 mb-4">
+            <h4 class="card-section-title">Place Your Bid</h4>
+            <h1 class="bid-amount-text fw-bold mb-4">${{ currentHighestBid | number }}</h1>
+            
+            <div class="d-flex justify-content-between mb-3 gap-2">
+              <button mat-stroked-button class="w-100 bid-btn" *ngFor="let bid of bidIncrements" (click)="placeBid(currentHighestBid + bid)">
+                ${{ bid | number }}
+              </button>
+            </div>
+
+            <mat-form-field appearance="outline" class="w-100 custom-bid-input">
+              <input matInput type="number" placeholder="Enter custom bid" [(ngModel)]="customBid">
+            </mat-form-field>
+            
+            <button mat-raised-button color="primary" class="w-100 mt-2 place-bid-btn" (click)="placeBid(customBid)">Place Bid</button>
+          </mat-card>
+          
+          <mat-card class="auction-controls-card p-4">
+            <h4 class="card-section-title">Auction Controls</h4>
+            <div class="d-flex control-buttons-group">
+              <button mat-button class="control-status-btn running-status me-3">Running</button>
+              <button mat-button class="control-btn me-2">Pause</button>
+              <button mat-button class="control-btn me-2">Resume</button>
+              <button mat-button class="control-btn">Skip Player</button>
+            </div>
+          </mat-card>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    
+    <div class="col-md-8 mb-4">
+      <h4 class="section-heading">Team Budgets</h4>
+      <div class="row">
+        
+        <div class="col-md-6 mb-3" *ngFor="let team of teamBudgets">
+          <mat-card class="team-budget-card p-3">
+            <div class="d-flex justify-content-between mb-2">
+              <h5 class="mb-0 team-name">{{ team.name }}</h5>
+              <h5 class="mb-0 team-budget-amount">${{ team.currentBudget | number }}</h5>
+            </div>
+            <p class="small text-muted mb-1 total-budget-text">Total: ${{ team.totalBudget | number }}</p>
+            <mat-progress-bar mode="determinate" [value]="team.progress" color="primary"></mat-progress-bar>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+      <mat-card class="sold-players-card p-4 h-100">
+        <h4 class="section-heading">Sold Players</h4>
+        
+        <div *ngFor="let player of soldPlayers" class="sold-player-item pb-1 mb-2">
+          <div class="d-flex justify-content-between">
+            <p class="mb-0 player-name">{{ player.name }}</p>
+            <p class="mb-0 sold-price-text fw-bold">${{ player.price | number }}</p>
+          </div>
+          <p class="small text-muted mt-n1 mb-1 team-name-sold">{{ player.team }}</p>
+        </div>
+        
+      </mat-card>
+    </div>
+  </div>
+</div>

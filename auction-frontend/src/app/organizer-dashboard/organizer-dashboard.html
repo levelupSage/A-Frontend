@@ -1,0 +1,36 @@
+<div class="container">
+  <h3 class="fw-bold mb-4 text-dark">Tournament Organizer Dashboard</h3>
+
+  <div class="row g-4">
+    <div class="col-12 col-sm-6 col-lg-4" *ngFor="let card of dashboardCards">
+      <mat-card class="h-100 shadow-sm dashboard-card p-3">
+        <!-- Header -->
+        <div class="d-flex align-items-center mb-3">
+          <div class="icon-wrapper me-3" [ngStyle]="{ 'background-color': card.iconBg, color: card.iconColor }">
+            <mat-icon class="fs-4">{{ card.icon }}</mat-icon>
+          </div>
+          <div>
+            <h5 class="fw-semibold mb-0">{{ card.title }}</h5>
+            <small class="text-muted">{{ card.subtitle }}</small>
+          </div>
+        </div>
+
+        <!-- Value -->
+        <h2 class="fw-bold mb-2" [ngStyle]="{ color: card.valueColor }">
+          {{ card.value }}
+        </h2>
+
+        <!-- Progress -->
+        <mat-progress-bar *ngIf="card.progress" mode="determinate" [value]="card.progress"
+          [color]="card.progressColor || 'primary'" class="rounded mb-3"></mat-progress-bar>
+
+        <!-- Actions -->
+        <div class="text-end">
+          <button mat-raised-button [color]="card.buttonColor" [routerLink]="[card.Links]">
+            {{ card.buttonText }}
+          </button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

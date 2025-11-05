@@ -1,0 +1,18 @@
+mat-card {
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+mat-card-title {
+  font-weight: 600;
+  color: #212121;
+}
+
+mat-card-subtitle {
+  color: #6c757d;
+}
+
+mat-slide-toggle {
+  display: block;
+  margin-top: 8px;
+}
