@@ -1,0 +1,22 @@
+.hover-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.hover-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.75rem 1.25rem rgba(0, 0, 0, 0.08);
+}
+
+.hover-player:hover {
+  background-color: #f8f9fa;
+  transform: scale(1.02);
+  transition: all 0.2s ease;
+}
+
+.bid-entry:hover {
+  background-color: #f1f3f5;
+  transition: 0.2s ease;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}

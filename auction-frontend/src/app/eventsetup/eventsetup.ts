@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { MATERIAL_IMPORTS } from '../material.imports';
 
 @Component({
   selector: 'app-eventsetup',
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, ...MATERIAL_IMPORTS],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule],
   templateUrl: './eventsetup.html',
   styleUrl: './eventsetup.css',
 })

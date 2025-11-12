@@ -3,11 +3,11 @@
 
   <div class="row g-4">
     <div class="col-12 col-sm-6 col-lg-4" *ngFor="let card of dashboardCards">
-      <mat-card class="h-100 shadow-sm dashboard-card p-3">
+      <div class="card h-100 shadow-sm dashboard-card p-3">
         <!-- Header -->
         <div class="d-flex align-items-center mb-3">
-          <div class="icon-wrapper me-3" [ngStyle]="{ 'background-color': card.iconBg, color: card.iconColor }">
-            <mat-icon class="fs-4">{{ card.icon }}</mat-icon>
+          <div class="icon-wrapper me-3 d-flex align-items-center justify-content-center rounded-circle" [ngStyle]="{ 'background-color': card.iconBg, color: card.iconColor }">
+            <i class="material-icons fs-4">{{ card.icon }}</i>
           </div>
           <div>
             <h5 class="fw-semibold mb-0">{{ card.title }}</h5>
@@ -21,16 +21,17 @@
         </h2>
 
         <!-- Progress -->
-        <mat-progress-bar *ngIf="card.progress" mode="determinate" [value]="card.progress"
-          [color]="card.progressColor || 'primary'" class="rounded mb-3"></mat-progress-bar>
+        <div *ngIf="card.progress" class="progress mb-3" style="height: 8px;">
+          <div class="progress-bar bg-primary" role="progressbar" [style.width.%]="card.progress" [attr.aria-valuenow]="card.progress" aria-valuemin="0" aria-valuemax="100"></div>
+        </div>
 
         <!-- Actions -->
         <div class="text-end">
-          <button mat-raised-button [color]="card.buttonColor" [routerLink]="[card.Links]">
+          <button class="btn" [ngClass]="getButtonClass(card.buttonColor)" [routerLink]="[card.Links]">
             {{ card.buttonText }}
           </button>
         </div>
-      </mat-card>
+      </div>
     </div>
   </div>
 </div>

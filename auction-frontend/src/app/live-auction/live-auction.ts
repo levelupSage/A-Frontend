@@ -1,66 +1,88 @@
 import { Component, OnInit } from '@angular/core';
-import { MATERIAL_IMPORTS } from '../material.imports';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+declare var bootstrap: any;
+
 @Component({
   selector: 'app-live-auction',
-  imports: [CommonModule, FormsModule, ...MATERIAL_IMPORTS],
+  imports: [CommonModule, FormsModule],
   templateUrl: './live-auction.html',
   styleUrl: './live-auction.css',
 })
-export class LiveAuction  implements OnInit {
 
-  // Dummy Data for Display
-  auctionTitle: string = 'Cricket Super League Auction 2024';
-  auctionStatus: string = 'Live - Bidding Open';
-
-  // Player Info
-  playerAlpha = {
+export class LiveAuction {
+  
+player = {
     name: 'Player Alpha',
-    image: '', // Placeholder image URL for the player
-    currentBid: 50000,
-    timer: '02:00',
+    imageUrl: 'assets/images/Messi.jpg',
     age: 24,
     nationality: 'Indian',
     sport: 'Cricket',
-    battingStyle: 'Right handed',
+    battingStyle: 'Right-handed',
     bowlingStyle: 'Left-arm fast'
   };
 
-  // Live Activity
+  userBid = 0;
+  currentBid = 50000;
+  auctionStatus = 'Running';
+  toastMessage = '';
+
   liveActivity = [
-    { text: 'Team Falcons placed a bid of **$50,000** for Player Alpha.', time: '10:00:05 AM' },
-    { text: 'Auction for Player Alpha is now open!', time: '10:00:00 AM' }
+    { message: 'Auction for Player Alpha started!', time: '10:00 AM' }
   ];
 
-  // Bidding
-  currentHighestBid: number = 55000;
-  bidIncrements = [5000, 10000, 25000];
-  customBid: number | null = null; 
-
-  // Team Budgets
   teamBudgets = [
-    { name: 'Team Falcons', currentBudget: 1250000, totalBudget: 1500000, progress: (1250000 / 1500000) * 100 },
-    { name: 'Team Titans', currentBudget: 980000, totalBudget: 1200000, progress: (980000 / 1200000) * 100 },
-    { name: 'Team Phoenix', currentBudget: 1100000, totalBudget: 1300000, progress: (1100000 / 1300000) * 100 },
-    { name: 'Team Dragons', currentBudget: 1350000, totalBudget: 1400000, progress: (1350000 / 1400000) * 100 }
+    { name: 'Team Falcons', total: 150000, spent: 125000 },
+    { name: 'Team Titans', total: 120000, spent: 98000 },
+    { name: 'Team Phoenix', total: 130000, spent: 110000 },
+    { name: 'Team Dragons', total: 140000, spent: 135000 }
   ];
 
-  // Sold Players
   soldPlayers = [
     { name: 'Player Beta', team: 'Team Titans', price: 120000 },
     { name: 'Player Gamma', team: 'Team Phoenix', price: 85000 }
   ];
 
-  constructor() { }
+  setBid(amount: number) {
+    this.userBid = this.currentBid + amount;
+  }
 
-  ngOnInit(): void { }
-
-  placeBid(amount: number | null): void {
-    if (amount && amount > this.currentHighestBid) {
-      this.currentHighestBid = amount;
+  placeBid() {
+    if (this.userBid <= this.currentBid) {
+      this.showToast('Your bid must be higher than the current bid!', 'danger');
+      return;
     }
-    this.customBid = null; 
+    this.currentBid = this.userBid;
+    this.liveActivity.unshift({
+      message: `Bid placed: $${this.userBid.toLocaleString()}`,
+      time: new Date().toLocaleTimeString()
+    });
+    this.showToast(`Bid of $${this.userBid.toLocaleString()} placed successfully!`, 'success');
+  }
+
+  pauseAuction() {
+    this.auctionStatus = 'Paused';
+    this.showToast('Auction paused.', 'warning');
+  }
+
+  resumeAuction() {
+    this.auctionStatus = 'Running';
+    this.showToast('Auction resumed.', 'success');
+  }
+
+  skipPlayer() {
+    this.showToast('Player skipped.', 'info');
+  }
+
+  showToast(message: string, type: string) {
+    this.toastMessage = message;
+    const toastEl = document.getElementById('successToast');
+    if (toastEl) {
+      toastEl.classList.remove('bg-success', 'bg-danger', 'bg-warning', 'bg-info');
+      toastEl.classList.add(`bg-${type}`);
+      const toast = new bootstrap.Toast(toastEl);
+      toast.show();
+    }
   }
 }

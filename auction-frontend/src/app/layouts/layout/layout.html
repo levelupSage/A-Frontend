@@ -1,15 +1,15 @@
-<mat-sidenav-container class="main-container">
+<div class="d-flex">
   <!-- Sidebar -->
-  <mat-sidenav #sidenav mode="side" opened class="app-sidenav">
+  <div class="sidebar-wrapper" [class.collapsed]="!sidebarOpen">
     <app-sidebar></app-sidebar>
-  </mat-sidenav>
+  </div>
 
   <!-- Main Content -->
-  <mat-sidenav-content class="content-area">
-    <app-navbar (toggleSidebar)="sidenav.toggle()"></app-navbar>
+  <div class="flex-grow-1 content-area">
+    <app-navbar (toggleSidebar)="toggleSidebar()"></app-navbar>
 
     <main class="main-content">
       <router-outlet></router-outlet>
     </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  </div>
+</div>

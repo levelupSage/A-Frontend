@@ -1,4 +1,87 @@
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+/* --- CSS Variables (Light Theme) --- */
+:root {
+    --primary-blue: #4a90e2;        /* Action color */
+    --light-bg-main: #f5f7f9;       /* Light gray background for the page body */
+    --light-bg-card: #ffffff;       /* White background for cards/forms */
+    --light-border: #e0e0e0;        /* Subtle border color */
+    --text-dark: #333333;           /* Dark text color */
+    --text-muted-light: #777777;    /* Muted text color */
+}
 
-@import "bootstrap/dist/css/bootstrap.min.css";
+/* --- Global Body / Main Page Background --- */
+body {
+    background-color: var(--light-bg-main);
+    color: var(--text-dark);
+}
 
+/* --- General Card Styles --- */
+.card {
+    background-color: var(--light-bg-card) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid var(--light-border) !important;
+    border-radius: 8px;
+    /* Enhanced, subtle shadow for light theme */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12); /* Shadow deepens on hover */
+}
+
+/* --- Text Elements --- */
+.text-muted {
+    color: var(--text-muted-light) !important;
+}
+
+/* --- Form Control (Input/Select) Styles for Light Theme --- */
+.form-control, .form-select {
+    border: 1px solid var(--light-border) !important;
+    color: var(--text-dark) !important;
+    background-color: #fcfcfc !important; /* Very slight off-white for contrast */
+    border-radius: 6px;
+    transition: all 0.2s ease-in-out;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-blue) !important;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25) !important; /* Blue glow on focus */
+    background-color: var(--light-bg-card) !important;
+}
+
+/* --- Buttons --- */
+.btn-primary {
+    background-color: var(--primary-blue) !important;
+    border-color: var(--primary-blue) !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+    background-color: #3f7bbf !important;
+    border-color: #3f7bbf !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3); 
+}
+
+/* --- Pagination (Light Theme) --- */
+.pagination .page-link {
+    background-color: var(--light-bg-card);
+    border-color: var(--light-border);
+    color: var(--text-dark);
+    transition: all 0.2s ease-in-out;
+    border-radius: 4px;
+    margin: 0 2px;
+}
+
+.pagination .page-link:hover {
+    background-color: #f0f0f0;
+    border-color: #f0f0f0;
+    color: var(--primary-blue);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-blue);
+    border-color: var(--primary-blue);
+    color: white;
+}

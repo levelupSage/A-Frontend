@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MATERIAL_IMPORTS } from '../material.imports';
 import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-organizer-dashboard',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ...MATERIAL_IMPORTS, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './organizer-dashboard.html',
   styleUrls: ['./organizer-dashboard.css']
 })
@@ -83,4 +82,15 @@ export class OrganizerDashboard {
       buttonColor: 'warn'
     }
   ];
+
+  getButtonClass(color: string): string {
+    switch (color) {
+      case 'primary':
+        return 'btn-primary';
+      case 'warn':
+        return 'btn-warning';
+      default:
+        return 'btn-primary';
+    }
+  }
 }

@@ -1,13 +1,12 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Sidebar } from "./layouts/sidebar/sidebar";
 import { Navbar } from "./layouts/navbar/navbar";
-import { MatSidenavModule } from '@angular/material/sidenav';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [CommonModule, RouterOutlet, MatSidenavModule],
+  imports: [CommonModule, RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

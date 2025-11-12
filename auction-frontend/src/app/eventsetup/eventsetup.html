@@ -6,49 +6,39 @@
         </div>
     </div>
 
-    <mat-card class=" shadow-sm border-0 mt-3">
-        <mat-card-header>
-            <mat-card-title class="h4 text-dark fw-bold">Tournament Details</mat-card-title>
-        </mat-card-header>
+    <div class="card shadow-sm border-0 mt-3">
+        <div class="card-header">
+            <h4 class="text-dark fw-bold mb-0">Tournament Details</h4>
+        </div>
 
-        <mat-card-content class="pt-3">
+        <div class="card-body">
             <!-- Tournament Name -->
             <div class="mb-4">
-                <mat-form-field appearance="outline" class="w-100">
-                    <mat-label>Tournament Name</mat-label>
-                    <input matInput [(ngModel)]="tournamentName" />
-                </mat-form-field>
+                <label class="form-label fw-semibold">Tournament Name</label>
+                <input type="text" class="form-control" [(ngModel)]="tournamentName" />
             </div>
 
             <!-- Tournament Code -->
             <div class="mb-4">
-                <mat-form-field appearance="outline" class="w-100">
-                    <mat-label>Tournament Code</mat-label>
-                    <input matInput [(ngModel)]="tournamentCode" />
-                </mat-form-field>
+                <label class="form-label fw-semibold">Tournament Code</label>
+                <input type="text" class="form-control" [(ngModel)]="tournamentCode" />
             </div>
 
             <!-- Description -->
             <div class="mb-4">
-                <mat-form-field appearance="outline" class="w-100">
-                    <mat-label>Description</mat-label>
-                    <textarea matInput rows="3" [(ngModel)]="description"></textarea>
-                </mat-form-field>
+                <label class="form-label fw-semibold">Description</label>
+                <textarea class="form-control" rows="3" [(ngModel)]="description"></textarea>
             </div>
 
             <!-- Dates -->
             <div class="row mb-4">
                 <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>Start Date</mat-label>
-                        <input matInput type="date" [(ngModel)]="startDate" />
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">Start Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="startDate" />
                 </div>
                 <div class="col-md-6">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>End Date</mat-label>
-                        <input matInput type="date" [(ngModel)]="endDate" />
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">End Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="endDate" />
                 </div>
             </div>
 
@@ -57,62 +47,50 @@
 
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>Round Name</mat-label>
-                        <input matInput [(ngModel)]="roundName" />
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">Round Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="roundName" />
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>Round Duration (minutes)</mat-label>
-                        <input matInput type="number" [(ngModel)]="roundDuration" />
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">Round Duration (minutes)</label>
+                    <input type="number" class="form-control" [(ngModel)]="roundDuration" />
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>Round Type</mat-label>
-                        <mat-select [(ngModel)]="roundType">
-                            <mat-option *ngFor="let type of roundTypes" [value]="type.value">
-                                {{ type.label }}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">Round Type</label>
+                    <select class="form-select" [(ngModel)]="roundType">
+                        <option *ngFor="let type of roundTypes" [value]="type.value">
+                            {{ type.label }}
+                        </option>
+                    </select>
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>Round Date</mat-label>
-                        <input matInput type="date" [(ngModel)]="roundDate" />
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">Round Date</label>
+                    <input type="date" class="form-control" [(ngModel)]="roundDate" />
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>Max Participants</mat-label>
-                        <input matInput type="number" [(ngModel)]="maxParticipants" />
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">Max Participants</label>
+                    <input type="number" class="form-control" [(ngModel)]="maxParticipants" />
                 </div>
 
                 <div class="col-md-6 mb-3">
-                    <mat-form-field appearance="outline" class="w-100">
-                        <mat-label>Visibility</mat-label>
-                        <mat-select [(ngModel)]="visibility">
-                            <mat-option *ngFor="let vis of visibilityOptions" [value]="vis.value">
-                                {{ vis.label }}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
+                    <label class="form-label fw-semibold">Visibility</label>
+                    <select class="form-select" [(ngModel)]="visibility">
+                        <option *ngFor="let vis of visibilityOptions" [value]="vis.value">
+                            {{ vis.label }}
+                        </option>
+                    </select>
                 </div>
             </div>
 
             <!-- Submit Button -->
             <div class="text-end mt-4">
-                <button mat-raised-button color="primary" (click)="submitForm()">
-                    <mat-icon class="me-2">save</mat-icon> Save Configuration
+                <button class="btn btn-primary" (click)="submitForm()">
+                    <i class="material-icons me-2" style="font-size: 1.2em;">save</i> Save Configuration
                 </button>
             </div>
-        </mat-card-content>
-    </mat-card>
+        </div>
+    </div>
 </div>
