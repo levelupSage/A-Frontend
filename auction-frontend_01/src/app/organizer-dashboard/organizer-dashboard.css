@@ -1,0 +1,70 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.page-title {
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 20px;
+}
+
+mat-card.dashboard-card {
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  transition: all 0.2s ease-in-out;
+  background-color: aliceblue;
+}
+
+mat-card.dashboard-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background-color: aliceblue;
+
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-wrapper mat-icon {
+  font-size: 28px;
+}
+
+.header-text h5 {
+  margin: 0;
+  font-weight: 600;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 13px;
+}
+
+.value {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.action-area {
+  text-align: right;
+  margin-top: 15px;
+}

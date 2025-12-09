@@ -1,0 +1,111 @@
+<div class="container-fluid py-4 light-dashboard-content">
+  
+  <h1 class="dashboard-heading mb-4">Administration Dashboard</h1>
+  
+  <div class="top-nav-tabs mb-4">
+    <button class="btn btn-primary top-nav-btn active-tab">User Management</button>
+    <button class="btn btn-light top-nav-btn">Audit Logs</button>
+    <button class="btn btn-light top-nav-btn">Backup Status</button>
+    <button class="btn btn-light top-nav-btn">Support Tickets</button>
+  </div>
+  
+  <div class="card metrics-card mb-4 light-card">
+    <div class="card-body">
+      <h4 class="card-title mb-4">User Overview</h4>
+      
+      <div class="row text-center">
+        <div class="col-md-4 mb-3 mb-md-0 metric-col">
+          <p class="text-muted small mb-1">Total Users</p>
+          <h2 class="metric-value blue-text mb-1">120</h2>
+          <p class="text-muted small">2 New this week</p>
+        </div>
+        
+        <div class="col-md-4 mb-3 mb-md-0 metric-col">
+          <p class="text-muted small mb-1">Active Users</p>
+          <h2 class="metric-value blue-text mb-1">98</h2>
+          <p class="text-muted small">5 Online now</p>
+        </div>
+        
+        <div class="col-md-4 metric-col">
+          <p class="text-muted small mb-1">Pending Invitations</p>
+          <h2 class="metric-value blue-text mb-1">5</h2>
+          <p class="text-muted small">Review needed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card table-card light-card">
+    <div class="card-body">
+      
+      <div class="d-flex justify-content-between flex-wrap mb-4">
+        <input type="search" class="form-control search-input" placeholder="Search users...">
+        
+        <div class="d-flex align-items-center flex-wrap mt-2 mt-md-0">
+          <select class="form-select filter-select me-2">
+            <option>Filter by Role</option>
+          </select>
+          <select class="form-select filter-select me-3">
+            <option>Filter by Status</option>
+          </select>
+          <button class="btn btn-primary add-user-btn">Add New User</button>
+        </div>
+      </div>
+      
+      <div class="table-responsive">
+        <table class="table light-table align-middle">
+          <thead>
+            <tr>
+              <th>User Name</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Last Activity</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <img src="path/to/alex-photo.jpg" class="rounded-circle profile-img" alt="Alex Johnson">
+                Alex Johnson
+              </td>
+              <td>alex.johnson@example.com</td>
+              <td><span class="badge role-badge organizer-role">Organizer</span></td>
+              <td><span class="badge status-badge active-status-light">Active</span></td>
+              <td>2 hours ago</td>
+              <td>
+                <a href="#" class="action-icon edit-icon">&#9998;</a>
+                <a href="#" class="action-icon delete-icon">&#128465;</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img src="path/to/maria-photo.jpg" class="rounded-circle profile-img" alt="Maria Garcia">
+                Maria Garcia
+              </td>
+              <td>maria.garcia@example.com</td>
+              <td><span class="badge role-badge teamowner-role">Team Owner</span></td>
+              <td><span class="badge status-badge active-status-light">Active</span></td>
+              <td>1 day ago</td>
+              <td>
+                <a href="#" class="action-icon edit-icon">&#9998;</a>
+                <a href="#" class="action-icon delete-icon">&#128465;</a>
+              </td>
+            </tr>
+            </tbody>
+        </table>
+      </div>
+      
+      <nav aria-label="Table Pagination">
+        <ul class="pagination justify-content-center mt-3">
+          <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a></li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+      
+    </div>
+  </div>
+</div>

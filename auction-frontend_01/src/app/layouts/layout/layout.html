@@ -1,0 +1,40 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button (click)="toggleSidebar()" aria-label="Toggle sidebar">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <mat-icon class="me-2">sports_soccer</mat-icon>
+  <span class="title">AuctionVerse</span>
+
+  <span class="spacer"></span>
+
+  <!-- <div class="search-container" *ngIf="isLargeScreen">
+    <mat-form-field appearance="outline" class="search-field">
+      <input matInput placeholder="Search events, players, teams..." />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div> -->
+
+  <button mat-icon-button [matBadge]="3" matBadgeColor="warn" aria-label="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+
+  <div class="user-info">
+    <mat-icon>account_circle</mat-icon>
+    <span class="user-name">Organizer</span>
+  </div>
+</mat-toolbar>
+
+<!-- SideBar and Main Content -->
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" [opened]="sidebarOpen" class="sidenav">
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <main class="main-content">
+      <router-outlet></router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<!-- SideBar and Main Content -->

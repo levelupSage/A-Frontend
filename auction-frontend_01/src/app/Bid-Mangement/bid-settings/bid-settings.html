@@ -1,0 +1,57 @@
+<h4 class="mb-1">Automatic Bidding Settings</h4>
+<p class="text-muted mb-4 small">Configure rules for automated bidding.</p>
+
+<form>
+  
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <label class="form-check-label small" for="enableAutoBid">Enable Auto-Bidding</label>
+    <div class="form-check form-switch">
+      <input 
+        class="form-check-input" 
+        type="checkbox" 
+        role="switch" 
+        id="enableAutoBid"
+        checked 
+        style="height: 1.5em; width: 3em;"
+      >
+    </div>
+  </div>
+  
+  <div class="mb-3">
+    <label for="maxBidAmount" class="form-label small">Max Bid Amount (USD)</label>
+    <input 
+      type="number" 
+      class="form-control form-control-dark" 
+      id="maxBidAmount" 
+      placeholder="e.g., 100000"
+      style="background-color: #2b2b3f; border-color: #444466; color: white;"
+    >
+  </div>
+  
+  <div class="mb-3">
+    <label for="targetPlayerId" class="form-label small">Target Player ID (Optional)</label>
+    <input 
+      type="text" 
+      class="form-control form-control-dark" 
+      id="targetPlayerId" 
+      placeholder="e.g., PLYR-007"
+      style="background-color: #2b2b3f; border-color: #444466; color: white;"
+    >
+  </div>
+  
+  <div class="mb-4">
+    <label for="bidIncrement" class="form-label small">Bid Increment Strategy (**50%**)</label>
+    <input 
+      type="range" 
+      class="form-range" 
+      min="0" 
+      max="100" 
+      step="10" 
+      value="50" 
+      id="bidIncrement"
+    >
+    <small class="text-muted">Adjusts how aggressively the auto-bid increases.</small>
+  </div>
+  
+  <button type="submit" class="btn btn-primary w-100">Save Auto-Bid Settings</button>
+</form>

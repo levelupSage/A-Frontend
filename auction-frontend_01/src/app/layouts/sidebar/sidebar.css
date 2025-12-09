@@ -1,0 +1,85 @@
+/* Main wrapper */
+.sidebar-nav {
+  padding: 20px;
+  height: calc(100vh - 110px);
+  overflow-y: auto;
+}
+
+/* Header text */
+.sidebar-header {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0 0 18px 4px;
+  color: #333;
+}
+
+/* Material list item */
+.sidebar-nav .mat-mdc-list-item {
+  height: 48px; /* consistent Material height */
+  border-radius: 8px;
+  margin-bottom: 6px;
+  transition: background 0.2s ease;
+  font-size: 15px;
+}
+
+/* Hover effect */
+.sidebar-nav .mat-mdc-list-item:hover {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+/* Active state */
+.sidebar-nav .active {
+  background: #4caf50 !important; /* Material green */
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+/* Active icon color */
+.sidebar-nav .active .mat-icon {
+  color: #fff !important;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  border-top: 1px solid #e0e0e0;
+  padding: 16px;
+  background: #fff;
+  text-align: center;
+}
+
+/* Logout Button */
+.logout-btn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* Footer Text */
+.footer-text {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+/* Align icon + text inside list item */
+.sidebar-nav .mat-mdc-list-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 14px !important;       /* space between icon and text */
+  padding-left: 12px !important;
+}
+
+/* Align icon */
+.sidebar-nav .mat-icon {
+  font-size: 22px !important;
+  height: 22px !important;
+  width: 22px !important;
+  margin-right: 6px;
+  color: #444;
+}
+
+/* Align text */
+.sidebar-nav .mat-mdc-list-item span {
+  font-size: 15px;
+  font-weight: 500;
+  transform: translateY(1px); /* small fix for perfect baseline alignment */
+}

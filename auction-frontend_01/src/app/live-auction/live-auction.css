@@ -1,0 +1,95 @@
+/* Base Card Styling */
+.auction-card {
+  border-radius: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+  background: #ffffff;
+}
+
+/* Hover Lift Effect */
+.auction-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Image Wrapper */
+.card-img-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-top-left-radius: 0.9rem;
+  border-top-right-radius: 0.9rem;
+}
+
+/* Image with Subtle Zoom */
+.player-img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.auction-card:hover .player-img {
+  transform: scale(1.08);
+}
+
+/* Overlay Badge */
+.img-overlay {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+
+/* Progress + Details */
+.progress {
+  background-color: #f2f3f5;
+  border-radius: 1rem;
+}
+
+/* Log & Sold Items */
+.activity-log:hover,
+.sold-item:hover {
+  background: rgba(13, 110, 253, 0.08);
+  border-radius: 0.5rem;
+  transition: background 0.3s ease;
+  padding-left: 4px;
+}
+
+/* Button Enhancement */
+.btn {
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(13, 110, 253, 0.2);
+}
+
+/* Subtle Glow */
+.auction-card:hover {
+  border: 1px solid rgba(13, 110, 253, 0.15);
+}
+
+.btn-outline-primary:active,
+.btn-primary:active {
+  transform: scale(0.97);
+  transition: transform 0.1s ease;
+}
+
+
+.badge {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.bg-success {
+  box-shadow: 0 0 8px rgba(25, 135, 84, 0.6);
+}
+
+.bg-warning {
+  box-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
+}
+
+.bg-danger {
+  box-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+}
