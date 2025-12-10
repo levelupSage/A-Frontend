@@ -1,0 +1,32 @@
+.home-container {
+  height: calc(100vh - 64px); /* subtract navbar height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 12px;
+}
+
+p {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.enter-btn {
+  font-size: 16px;
+  color: #c62828;
+  text-decoration: none;
+  border: 1px solid #c62828;
+  padding: 10px 20px;
+  border-radius: 6px;
+}
+
+.enter-btn:hover {
+  background: #c62828;
+  color: white;
+}

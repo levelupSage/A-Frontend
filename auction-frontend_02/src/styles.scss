@@ -1,0 +1,95 @@
+/* ----------- GLOBAL MATERIAL INPUT / SELECT THEME ------------ */
+
+/* container width */
+.mat-mdc-form-field {
+  width: 100% !important;
+  margin-bottom: 16px;
+}
+
+/* input & select box styling */
+.mdc-text-field {
+  background: #ffffff !important;
+  border: 1px solid #cfcfcf !important;
+  border-radius: 6px !important;
+  padding: 2px 6px !important;
+  height: 48px !important;
+  transition: border-color .2s ease, box-shadow .2s ease !important;
+}
+
+/* Remove blue overlay */
+.mdc-text-field--filled {
+  background-color: #ffffff !important;
+}
+
+/* Focus state - purple border like screenshot */
+.mdc-text-field--focused .mdc-notched-outline__leading,
+.mdc-text-field--focused .mdc-notched-outline__notch,
+.mdc-text-field--focused .mdc-notched-outline__trailing {
+  border-color: #8e24aa !important;
+  box-shadow: 0 0 0 1px rgba(142,36,170,0.4) !important;
+}
+
+/* Hover state */
+.mdc-text-field:hover .mdc-notched-outline__leading,
+.mdc-text-field:hover .mdc-notched-outline__notch,
+.mdc-text-field:hover .mdc-notched-outline__trailing {
+  border-color: #9c27b0 !important;
+}
+
+/* Label color */
+.mat-mdc-form-field-label {
+  color: #555 !important;
+  font-size: 14px !important;
+}
+
+/* Required star color */
+.mat-mdc-form-field-required-marker {
+  color: red !important;
+}
+
+/* Dropdown Panel */
+.mat-mdc-select-panel {
+  background: #fff !important;
+  border: 1px solid #cfcfcf !important;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1) !important;
+  border-radius: 6px !important;
+}
+
+/* mat-option */
+.mat-mdc-option {
+  font-size: 14px !important;
+}
+
+.mat-mdc-option:hover:not(.mdc-list-item--disabled) {
+  background: #f1e4ff !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected {
+  background: #e6d3ff !important;
+  color: #6a1b9a !important;
+}
+
+/* Datepicker calendar icon */
+.mat-mdc-form-field-icon-prefix,
+.mat-mdc-form-field-icon-suffix {
+  color: #555 !important;
+}
+
+/* Error message */
+.mat-mdc-form-field-error {
+  font-size: 12px !important;
+  margin-top: 2px;
+  color: #e53935 !important;
+}
+
+/* Radio button (purple) */
+.mat-mdc-radio-button.mat-accent .mdc-radio__native-control:checked + .mdc-radio__background .mdc-radio__outer-circle {
+  border-color: #8e24aa !important;
+}
+.mat-mdc-radio-button.mat-accent .mdc-radio__native-control:checked + .mdc-radio__background .mdc-radio__inner-circle {
+  background-color: #8e24aa !important;
+}
+
+
+
+
