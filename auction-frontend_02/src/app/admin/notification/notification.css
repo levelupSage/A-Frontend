@@ -1,0 +1,153 @@
+/* --- Global Variables (Ensure these are set globally for consistency) --- */
+:root {
+    --primary-blue: #4a90e2; 
+    --light-bg-main: #f5f7f9; 
+    --light-bg-card: #ffffff;
+    --light-border: #e0e0e0;
+    --text-dark: #333333;
+    --text-muted-light: #777777;
+    
+    /* Status Colors */
+    --success-green: #48BB78;
+    --info-blue: #4a90e2; 
+    --warning-orange: #F6AD55;
+    --alert-light-red: #FEEBC3; 
+}
+
+/* --- Base Heading Styles --- */
+.page-heading {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.section-heading {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* --- System Alert (Subscription Warning) --- */
+.custom-alert {
+    background-color: var(--alert-light-red) !important;
+    border: 1px solid #fbd38d !important;
+    color: #9c4221 !important;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* --- Notification Settings Cards (Visual Improvement) --- */
+.card.light-card {
+    border: 1px solid var(--light-border) !important;
+    background-color: var(--light-bg-card) !important;
+    border-radius: 12px;
+    /* Improved subtle shadow for better separation */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
+    min-height: 150px;
+    padding: 1rem;
+    transition: border-color 0.2s;
+}
+
+.notification-card:hover {
+    /* Subtle blue border on hover */
+    border-color: var(--info-blue) !important; 
+}
+
+.setting-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.setting-description {
+    font-size: 0.9rem;
+    color: var(--text-muted-light);
+}
+
+/* --- Custom Light Switch (Toggle Color Fix) --- */
+.form-check-input.light-switch {
+    background-color: #ced4da; /* Inactive color (light gray) */
+    border: 1px solid #ced4da;
+    width: 2.5rem;
+    height: 1.5rem;
+    /* Ensures the pill shape matches the image */
+    border-radius: 50em; 
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.form-check-input.light-switch:checked {
+    /* Primary Blue active color */
+    background-color: var(--primary-blue) !important; 
+    border-color: var(--primary-blue) !important;
+}
+
+/* --- Message History Log --- */
+.message-log-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.message-item {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.message-item:hover {
+    background-color: #fafafa;
+}
+
+.message-icon {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-right: 1rem;
+    line-height: 1.2;
+}
+
+.message-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.message-text {
+    font-size: 0.9rem;
+    color: var(--text-muted-light);
+}
+
+/* --- Message Badges and Icon Color Mapping (Improved) --- */
+.badge {
+    padding: 0.2em 0.5em;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.success-badge {
+    background-color: var(--success-green);
+    color: white;
+}
+
+.success-icon {
+    color: var(--success-green);
+}
+
+.info-badge {
+    background-color: var(--info-blue);
+    color: white;
+}
+
+.info-icon {
+    color: var(--info-blue);
+}
+
+.warning-badge {
+    background-color: var(--warning-orange);
+    color: white;
+}
+
+.warning-icon {
+    color: var(--warning-orange);
+}

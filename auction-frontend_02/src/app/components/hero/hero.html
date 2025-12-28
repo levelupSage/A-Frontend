@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+
+<section class="hero-section" [ngStyle]="{
+  'background-image': 'url(' + carouselImages[activeIndex] + ')'
+}">
+  <div class="container text-center text-white">
+    <h1>
+      We help you to grow up your <span>business</span>
+    </h1>
+
+    <p>
+      Softy Pinko is a professional Bootstrap 4.0 theme designed by TemplateMo
+      for your company at absolutely free of charge
+    </p>
+
+    <button class="btn-discover">DISCOVER MORE</button>
+
+    <!-- USER IMAGE CAROUSEL -->
+    <div class="user-carousel">
+      <div class="carousel-track" [style.transform]="'translateX(-' + activeIndex * 140 + 'px)'">
+        <div class="carousel-item" *ngFor="let img of carouselImages">
+          <img [src]="img" alt="user image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<app-features></app-features>

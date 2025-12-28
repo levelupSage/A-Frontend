@@ -1,0 +1,110 @@
+<div class="container py-5 bg-light">
+  <div class="card shadow-lg p-4" style="background-color: #1e1e2d; color: white;">
+
+    <h2 class="mb-1">Bid History</h2>
+    <p class="text-muted mb-4">Review your past bidding activities and statuses.</p>
+
+    <div class="row g-3 mb-4">
+      
+      <div class="col-lg-4 col-md-6">
+        <input 
+          type="text" 
+          class="form-control form-control-dark" 
+          placeholder="Search by player, team, status..."
+          [(ngModel)]="searchTerm"
+          style="background-color: #2b2b3f; border-color: #444466; color: white;"
+        >
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <select 
+          class="form-select form-select-dark" 
+          [(ngModel)]="selectedStatus"
+          style="background-color: #2b2b3f; border-color: #444466; color: white;"
+        >
+          <option value="All Statuses">All Statuses</option>
+          <option value="Accepted">Accepted</option>
+          <option value="Pending">Pending</option>
+          <option value="Outbid">Outbid</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+
+      <div class="col-lg-3 col-md-6">
+        <select 
+          class="form-select form-select-dark" 
+          [(ngModel)]="selectedSort"
+          style="background-color: #c7c7c7; border-color: #c9c9cb; color: white;"
+        >
+          <option>Date (Newest)</option>
+          <option>Date (Oldest)</option>
+          <option>Amount (High)</option>
+          <option>Amount (Low)</option>
+        </select>
+      </div>
+
+      <div class="col-lg-2 col-md-6">
+        <button class="btn btn-primary w-100" (click)="applyFilters()">Apply Filters</button>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-borderless align-middle" style="color: white;">
+        <thead>
+          <tr style="border-bottom: 1px solid #444466;">
+            <th>Player</th>
+            <th>Team</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Timestamp</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bid of paginatedBids" style="border-bottom: 1px solid #2b2b3f;">
+            <td class="py-3">{{ bid.player }}</td>
+            <td>{{ bid.team }}</td>
+            <td>**{{ formatCurrency(bid.amount) }}**</td>
+            <td>
+              <span class="badge" 
+                    [ngClass]="{
+                      'bg-primary': bid.status === 'Accepted',
+                      'bg-warning text-dark': bid.status === 'Pending',
+                      'bg-secondary': bid.status === 'Outbid',
+                      'bg-danger': bid.status === 'Rejected'
+                    }">
+                {{ bid.status }}
+              </span>
+            </td>
+            <td>{{ bid.timestamp }}</td>
+            <td>
+              <a class="btn btn-link text-white p-0 me-3" (click)="viewDetails(bid)">View Details</a>
+              <a *ngIf="bid.status === 'Pending'" class="btn btn-link text-danger p-0" (click)="cancelBid(bid)">Cancel Bid</a>
+            </td>
+          </tr>
+          <tr *ngIf="paginatedBids.length === 0">
+            <td colspan="6" class="text-center text-muted py-4">No bids found matching the criteria.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <nav aria-label="Bid History Pagination">
+        <ul class="pagination pagination-sm mb-0">
+          <li class="page-item" [class.disabled]="currentPage === 1">
+            <a class="page-link page-link-dark" (click)="prevPage()">&lt; Previous</a>
+          </li>
+
+          <li class="page-item" *ngFor="let page of pages" [class.active]="page === currentPage">
+            <a class="page-link page-link-dark" (click)="goToPage(page)">{{ page }}</a>
+          </li>
+
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
+            <a class="page-link page-link-dark" (click)="nextPage()">Next &gt;</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

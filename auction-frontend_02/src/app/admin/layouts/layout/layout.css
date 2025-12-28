@@ -1,0 +1,45 @@
+.admin-navbar {
+  height: 64px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
+
+.user-btn {
+  color: white;
+  border: none;
+}
+
+.user-btn:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Layout */
+.admin-container {
+  display: flex;
+  margin-top: 64px;
+  height: calc(100vh - 64px);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  transition: 0.3s;
+}
+
+.sidebar.collapsed {
+  width: 70px;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  padding: 24px;
+  background: #f4f6f9;
+  overflow-y: auto;
+}

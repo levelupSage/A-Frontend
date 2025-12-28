@@ -1,0 +1,84 @@
+<div class="sidebar-wrapper">
+
+  <h6 class="sidebar-header">Organizer Tools</h6>
+
+  <ul class="nav flex-column sidebar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/dashboard" routerLinkActive="active">
+        <mat-icon>dashboard</mat-icon>
+        Dashboard
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/eventsetup" routerLinkActive="active">
+        <mat-icon>event</mat-icon>
+        Event Setup
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/live-auction" routerLinkActive="active">
+        <mat-icon>gavel</mat-icon>
+        Live Auction
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/team-owner" routerLinkActive="active">
+        <mat-icon>groups</mat-icon>
+        Team Owner
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/player-registration" routerLinkActive="active">
+        <mat-icon>sports_esports</mat-icon>
+        Player
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/registered-player" routerLinkActive="active">
+        <mat-icon>person_add</mat-icon>
+        Registered Player
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/bid-manage" routerLinkActive="active">
+        <mat-icon>analytics</mat-icon>
+        Bid Management
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/admin-dashboard" routerLinkActive="active">
+        <mat-icon>monitor_heart</mat-icon>
+        Admin Dashboard
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/admin/notification" routerLinkActive="active">
+        <mat-icon>notifications</mat-icon>
+        Notification
+      </a>
+    </li>
+
+  </ul>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <button class="btn btn-outline-danger w-100" (click)="logout()">
+      <mat-icon>logout</mat-icon>
+      Logout
+    </button>
+
+    <small class="text-muted d-block mt-2">
+      © 2025 Auction System
+    </small>
+  </div>
+
+</div>

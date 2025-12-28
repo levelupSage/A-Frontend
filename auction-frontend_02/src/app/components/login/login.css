@@ -1,0 +1,35 @@
+/* LOGIN BUTTON */
+.btn-login {
+  background: #ff4d79;
+  color: #fff;
+  border-radius: 20px;
+  padding: 6px 18px;
+  border: none;
+}
+
+.btn-login:hover {
+  background: #e63b66;
+}
+
+/* LOGIN CARD */
+.login-card {
+  border-radius: 16px;
+  border: none;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* INPUT FOCUS */
+.form-control:focus {
+  box-shadow: none;
+  border-color: #6a4cff;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+  background: linear-gradient(135deg, #6a4cff, #9b5de5);
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #5a3ce0, #8a4cd4);
+}

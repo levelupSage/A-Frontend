@@ -1,0 +1,67 @@
+
+/* Page Layout */
+.page-card {
+  padding: 30px;
+  margin: 20px;
+  background-color: white;
+  border-radius: 1rem;
+}
+
+/* Section Title */
+.section-title {
+  margin: 25px 0 10px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Material Grid (Without Bootstrap) */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* File Upload */
+.file-upload {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.hint {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+}
+
+/* Status Panel */
+.status-panel {
+  background: #fff7e0;
+  border-left: 4px solid #ff9800;
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  align-items: center;
+}
+
+/* Submit Button */
+.submit-btn {
+  margin-top: 25px;
+}
+
+/* FIX: Dropdown opening behind content */
+.mat-select-panel {
+  z-index: 1000 !important;
+}
+
+.mat-form-field {
+  position: relative;
+  z-index: 10;
+}

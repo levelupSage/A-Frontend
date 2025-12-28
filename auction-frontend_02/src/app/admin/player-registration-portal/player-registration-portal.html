@@ -1,0 +1,89 @@
+<mat-card class="page-card">
+  <mat-card-title>Player Registration</mat-card-title>
+  <mat-divider></mat-divider>
+
+  <!-- Personal Section -->
+  <h3 class="section-title">Personal Information</h3>
+
+  <div class="grid-2">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Last Name</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Phone Number</mat-label>
+      <input matInput />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Date of Birth</mat-label>
+      <input matInput type="date" />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Address</mat-label>
+      <input matInput />
+    </mat-form-field>
+  </div>
+
+  <!-- Sports -->
+  <h3 class="section-title">Sport & Position</h3>
+
+  <div class="grid-2">
+    <mat-form-field appearance="fill">
+      <mat-label>Sport</mat-label>
+      <mat-select>
+        <mat-option value="cricket">Cricket</mat-option>
+        <mat-option value="football">Football</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Position</mat-label>
+      <mat-select>
+        <mat-option value="batter">Batter</mat-option>
+        <mat-option value="bowler">Bowler</mat-option>
+        <mat-option value="keeper">Wicket Keeper</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- Upload -->
+  <h3 class="section-title">Document Upload</h3>
+
+  <div class="grid-2">
+    <div class="file-upload">
+      <label>Profile Photo</label>
+      <input type="file" class="file-input" />
+      <span class="hint">Upload a clear headshot (max 5MB)</span>
+    </div>
+
+    <div class="file-upload">
+      <label>Identity Document</label>
+      <input type="file" class="file-input" />
+      <span class="hint">Passport / National ID (max 10MB)</span>
+    </div>
+  </div>
+
+  <!-- Status -->
+  <mat-card class="status-panel">
+    <mat-icon>hourglass_empty</mat-icon>
+    <span>Registration is <strong>Pending Review</strong>.</span>
+  </mat-card>
+
+  <!-- Submit -->
+  <button mat-raised-button color="primary" class="submit-btn">
+    Submit Registration
+  </button>
+</mat-card>

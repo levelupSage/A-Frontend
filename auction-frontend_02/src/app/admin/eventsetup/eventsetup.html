@@ -1,0 +1,104 @@
+<div class="event-setup-container">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Event Setup & Configuration</h1>
+    <p>Preview and edit tournament configuration</p>
+  </div>
+
+  <mat-card class="event-card">
+    <mat-card-header>
+      <mat-card-title>Tournament Details</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form class="event-form">
+        <!-- Tournament Name -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tournament Name</mat-label>
+          <input matInput [(ngModel)]="tournamentName" />
+        </mat-form-field>
+
+        <!-- Tournament Code -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Tournament Code</mat-label>
+          <input matInput [(ngModel)]="tournamentCode" />
+        </mat-form-field>
+
+        <!-- Description -->
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="3" [(ngModel)]="description"></textarea>
+        </mat-form-field>
+
+        <!-- Dates -->
+        <div class="date-row">
+          <mat-form-field appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate" />
+            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+            <mat-datepicker #startPicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>End Date</mat-label>
+            <input matInput [matDatepicker]="endPicker" [(ngModel)]="endDate" />
+            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+            <mat-datepicker #endPicker></mat-datepicker>
+          </mat-form-field>
+        </div>
+
+        <!-- Round Header -->
+        <h2>Round Configuration</h2>
+
+        <div class="round-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Round Name</mat-label>
+            <input matInput [(ngModel)]="roundName" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Round Duration (minutes)</mat-label>
+            <input matInput type="number" [(ngModel)]="roundDuration" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Round Type</mat-label>
+            <mat-select [(ngModel)]="roundType">
+              <mat-option *ngFor="let type of roundTypes" [value]="type.value">
+                {{ type.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Round Date</mat-label>
+            <input matInput [matDatepicker]="roundPicker" [(ngModel)]="roundDate" />
+            <mat-datepicker-toggle matSuffix [for]="roundPicker"></mat-datepicker-toggle>
+            <mat-datepicker #roundPicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Max Participants</mat-label>
+            <input matInput type="number" [(ngModel)]="maxParticipants" />
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+            <mat-label>Visibility</mat-label>
+            <mat-select [(ngModel)]="visibility">
+              <mat-option *ngFor="let vis of visibilityOptions" [value]="vis.value">
+                {{ vis.label }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions align="end">
+      <button mat-raised-button color="primary" (click)="submitForm()">
+        <mat-icon>save</mat-icon>
+        Save Configuration
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

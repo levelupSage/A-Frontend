@@ -1,0 +1,79 @@
+.table {
+    color: var(--text-light);
+}
+
+.table thead th {
+    border-bottom: 1px solid var(--dark-border);
+    padding-bottom: 1rem;
+    color: var(--text-muted-dark);
+}
+
+.table tbody tr {
+    border-bottom: 1px solid var(--dark-border);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.table tbody tr:last-child {
+    border-bottom: none;
+}
+
+.table tbody tr:hover {
+    background-color: #3b455a;
+}
+
+.table td {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.table .btn-link {
+    color: var(--text-light) !important;
+    transition: color 0.2s ease-in-out;
+}
+
+.table .btn-link:hover {
+    color: var(--primary-blue) !important;
+    text-decoration: underline;
+}
+
+.table .btn-danger {
+    color: #EF4444 !important;
+}
+
+.table .btn-danger:hover {
+    color: #c93636 !important;
+}
+
+/* --- Badge Styles --- */
+.badge {
+    padding: 0.5em 0.8em;
+    border-radius: 12px;
+    font-weight: 600;
+    min-width: 90px;
+    text-align: center;
+    border: 1px solid transparent;
+}
+
+.badge.bg-primary {
+    background-color: rgba(74, 144, 226, 0.2) !important;
+    color: var(--primary-blue) !important;
+    border-color: var(--primary-blue);
+}
+
+.badge.bg-warning {
+    background-color: rgba(246, 173, 85, 0.2) !important;
+    color: #F6AD55 !important;
+    border-color: #F6AD55;
+}
+
+.badge.bg-secondary {
+    background-color: rgba(160, 174, 192, 0.2) !important;
+    color: #A0AEC0 !important;
+    border-color: #A0AEC0;
+}
+
+.badge.bg-danger {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    color: #EF4444 !important;
+    border-color: #EF4444;
+}

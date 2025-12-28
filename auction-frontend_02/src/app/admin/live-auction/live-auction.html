@@ -1,0 +1,121 @@
+<div class="container-fluid py-4 bg-light min-vh-100">
+  <h5 class="fw-semibold mb-1">Cricket Super League Auction 2024</h5>
+  <small class="text-muted">Live • Bidding Open</small>
+
+  <div class="row g-4 mt-2">
+    <!-- Player Card -->
+    <div class="col-lg-3 col-md-5">
+      <div class="card auction-card border-0 shadow-sm hover-card">
+        <div class="card-img-wrapper position-relative">
+          <img [src]="player.imageUrl" alt="{{ player.name }}" class="card-img-top player-img" />
+          <span class="badge bg-success position-absolute top-0 end-0 m-2 shadow-sm">LIVE</span>
+        </div>
+        <div class="card-body">
+          <h6 class="fw-bold mb-1">{{ player.name }}</h6>
+          <div class="text-primary fw-semibold fs-5 mb-2">02:00</div>
+          <p class="small text-muted mb-1"><strong>Current Bid:</strong> ${{ currentBid | number }}</p>
+          <p class="small mb-1"><strong>Age:</strong> {{ player.age }}</p>
+          <p class="small mb-1"><strong>Nationality:</strong> {{ player.nationality }}</p>
+          <p class="small mb-1"><strong>Sport:</strong> {{ player.sport }}</p>
+          <p class="small mb-1"><strong>Batting:</strong> {{ player.battingStyle }}</p>
+          <p class="small mb-0"><strong>Bowling:</strong> {{ player.bowlingStyle }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Activity -->
+    <div class="col-lg-4 col-md-7">
+      <div class="card auction-card border-0 shadow-sm h-100 hover-card">
+        <div class="card-body overflow-auto">
+          <h6 class="fw-bold mb-3">Live Activity</h6>
+          <div *ngFor="let log of liveActivity" class="activity-log">
+            <div class="fw-semibold">{{ log.message }}</div>
+            <div class="text-muted small">{{ log.time }}</div>
+            <hr class="my-2" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bid Section -->
+    <div class="col-lg-5">
+      <div class="card auction-card border-0 shadow-sm mb-4 hover-card">
+        <div class="card-body text-center">
+          <h6 class="fw-bold mb-3">Place Your Bid</h6>
+
+          <h3 class="fw-bold text-primary mb-3">${{ userBid | number }}</h3>
+
+          <div class="btn-group w-100 mb-3">
+            <button class="btn btn-outline-primary" (click)="setBid(5000)">$5,000</button>
+            <button class="btn btn-outline-primary" (click)="setBid(10000)">$10,000</button>
+            <button class="btn btn-outline-primary" (click)="setBid(25000)">$25,000</button>
+          </div>
+
+          <input type="number" class="form-control text-center mb-3" [(ngModel)]="userBid"
+            placeholder="Enter custom bid" min="0" />
+
+          <button class="btn btn-primary w-100" (click)="placeBid()">Place Bid</button>
+        </div>
+      </div>
+
+      <!-- Auction Controls -->
+      <div class="card auction-card border-0 shadow-sm hover-card">
+        <div class="card-body">
+          <h6 class="fw-bold mb-3">Auction Controls</h6>
+          <div class="d-grid gap-2">
+            <button class="btn btn-danger" (click)="pauseAuction()">Pause</button>
+            <button class="btn btn-success" (click)="resumeAuction()">Resume</button>
+            <button class="btn btn-secondary" (click)="skipPlayer()">Skip Player</button>
+          </div>
+          <span class="badge bg-danger mt-3 shadow-sm" [ngClass]="{
+    'bg-success': auctionStatus === 'Running',
+    'bg-danger': auctionStatus === 'Stopped',
+    'bg-warning text-dark': auctionStatus === 'Paused'
+  }">{{ auctionStatus }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lower Section -->
+  <div class="row g-4 mt-4">
+    <!-- Team Budgets -->
+    <div class="col-lg-8">
+      <div class="card auction-card border-0 shadow-sm p-3 hover-card">
+        <h6 class="fw-bold mb-3">Team Budgets</h6>
+        <div class="row row-cols-2 g-3">
+          <div class="col" *ngFor="let team of teamBudgets">
+            <div class="fw-semibold">{{ team.name }}</div>
+            <div class="text-muted small mb-1">Total: ${{ team.total | number }}</div>
+            <div class="progress" style="height: 6px;">
+              <div class="progress-bar bg-primary" [style.width.%]="(team.spent / team.total) * 100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sold Players -->
+    <div class="col-lg-4">
+      <div class="card auction-card border-0 shadow-sm p-3 hover-card">
+        <h6 class="fw-bold mb-3">Sold Players</h6>
+        <div *ngFor="let sold of soldPlayers" class="sold-item mb-2">
+          <div class="fw-semibold">{{ sold.name }}</div>
+          <div class="text-muted small">{{ sold.team }} — ${{ sold.price | number }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap Toast -->
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div class="toast align-items-center text-white bg-success border-0" id="successToast" role="alert">
+    <div class="d-flex">
+      <div class="toast-body">
+        {{ toastMessage }}
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
