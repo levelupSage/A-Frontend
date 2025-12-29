@@ -6,3 +6,40 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* SUCCESS snackbar */
+.success-snackbar {
+  background: #2e7d32; /* Material Green */
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* ERROR snackbar */
+.error-snackbar {
+  background: #d32f2f; /* Material Red */
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Rounded snackbar */
+.mat-mdc-snack-bar-container {
+  border-radius: 8px;
+}
+
+
+/* Snackbar action button base style */
+.mat-mdc-snack-bar-action {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+/* Hover & focus fix */
+.mat-mdc-snack-bar-action:hover,
+.mat-mdc-snack-bar-action:focus {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Remove ugly focus outline */
+.mat-mdc-snack-bar-action:focus-visible {
+  outline: none !important;
+}

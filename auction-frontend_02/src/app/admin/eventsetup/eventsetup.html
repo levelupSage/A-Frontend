@@ -1,104 +1,105 @@
-<div class="event-setup-container">
+<div class="container py-4">
+
   <!-- Page Header -->
-  <div class="page-header">
-    <h1>Event Setup & Configuration</h1>
-    <p>Preview and edit tournament configuration</p>
+  <div class="mb-4">
+    <h3 class="fw-bold">Event Setup & Configuration</h3>
+    <p class="text-muted">Preview and edit tournament configuration</p>
   </div>
 
-  <mat-card class="event-card">
-    <mat-card-header>
-      <mat-card-title>Tournament Details</mat-card-title>
-    </mat-card-header>
+  <div class="card shadow-sm">
+    <div class="card-header fw-semibold">
+      Tournament Details
+    </div>
 
-    <mat-card-content>
-      <form class="event-form">
+    <div class="card-body">
+      <form>
+
         <!-- Tournament Name -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Tournament Name</mat-label>
-          <input matInput [(ngModel)]="tournamentName" />
-        </mat-form-field>
+        <div class="mb-3">
+          <label class="form-label">Tournament Name</label>
+          <input type="text" class="form-control" [(ngModel)]="tournamentName" name="tournamentName">
+        </div>
 
         <!-- Tournament Code -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Tournament Code</mat-label>
-          <input matInput [(ngModel)]="tournamentCode" />
-        </mat-form-field>
+        <div class="mb-3">
+          <label class="form-label">Tournament Code</label>
+          <input type="text" class="form-control" [(ngModel)]="tournamentCode" name="tournamentCode">
+        </div>
 
         <!-- Description -->
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Description</mat-label>
-          <textarea matInput rows="3" [(ngModel)]="description"></textarea>
-        </mat-form-field>
+        <div class="mb-3">
+          <label class="form-label">Description</label>
+          <textarea class="form-control" rows="3" [(ngModel)]="description" name="description"></textarea>
+        </div>
 
         <!-- Dates -->
-        <div class="date-row">
-          <mat-form-field appearance="outline">
-            <mat-label>Start Date</mat-label>
-            <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate" />
-            <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
-            <mat-datepicker #startPicker></mat-datepicker>
-          </mat-form-field>
+        <div class="row mb-4">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <label class="form-label">Start Date</label>
+            <input type="date" class="form-control" [(ngModel)]="startDate" name="startDate">
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>End Date</mat-label>
-            <input matInput [matDatepicker]="endPicker" [(ngModel)]="endDate" />
-            <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
-            <mat-datepicker #endPicker></mat-datepicker>
-          </mat-form-field>
+          <div class="col-md-6">
+            <label class="form-label">End Date</label>
+            <input type="date" class="form-control" [(ngModel)]="endDate" name="endDate">
+          </div>
         </div>
 
-        <!-- Round Header -->
-        <h2>Round Configuration</h2>
+        <!-- Round Configuration -->
+        <h5 class="fw-semibold mb-3">Round Configuration</h5>
 
-        <div class="round-grid">
-          <mat-form-field appearance="outline">
-            <mat-label>Round Name</mat-label>
-            <input matInput [(ngModel)]="roundName" />
-          </mat-form-field>
+        <div class="row g-3">
 
-          <mat-form-field appearance="outline">
-            <mat-label>Round Duration (minutes)</mat-label>
-            <input matInput type="number" [(ngModel)]="roundDuration" />
-          </mat-form-field>
+          <div class="col-md-4">
+            <label class="form-label">Round Name</label>
+            <input type="text" class="form-control" [(ngModel)]="roundName" name="roundName">
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Round Type</mat-label>
-            <mat-select [(ngModel)]="roundType">
-              <mat-option *ngFor="let type of roundTypes" [value]="type.value">
+          <div class="col-md-4">
+            <label class="form-label">Duration (minutes)</label>
+            <input type="number" class="form-control" [(ngModel)]="roundDuration" name="roundDuration">
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">Round Type</label>
+            <select class="form-select" [(ngModel)]="roundType" name="roundType">
+              <option *ngFor="let type of roundTypes" [value]="type.value">
                 {{ type.label }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
+              </option>
+            </select>
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Round Date</mat-label>
-            <input matInput [matDatepicker]="roundPicker" [(ngModel)]="roundDate" />
-            <mat-datepicker-toggle matSuffix [for]="roundPicker"></mat-datepicker-toggle>
-            <mat-datepicker #roundPicker></mat-datepicker>
-          </mat-form-field>
+          <div class="col-md-4">
+            <label class="form-label">Round Date</label>
+            <input type="date" class="form-control" [(ngModel)]="roundDate" name="roundDate">
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Max Participants</mat-label>
-            <input matInput type="number" [(ngModel)]="maxParticipants" />
-          </mat-form-field>
+          <div class="col-md-4">
+            <label class="form-label">Max Participants</label>
+            <input type="number" class="form-control" [(ngModel)]="maxParticipants" name="maxParticipants">
+          </div>
 
-          <mat-form-field appearance="outline">
-            <mat-label>Visibility</mat-label>
-            <mat-select [(ngModel)]="visibility">
-              <mat-option *ngFor="let vis of visibilityOptions" [value]="vis.value">
+          <div class="col-md-4">
+            <label class="form-label">Visibility</label>
+            <select class="form-select" [(ngModel)]="visibility" name="visibility">
+              <option *ngFor="let vis of visibilityOptions" [value]="vis.value">
                 {{ vis.label }}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-      </form>
-    </mat-card-content>
+              </option>
+            </select>
+          </div>
 
-    <mat-card-actions align="end">
-      <button mat-raised-button color="primary" (click)="submitForm()">
-        <mat-icon>save</mat-icon>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="card-footer text-end">
+      <button class="btn btn-primary" (click)="submitForm()">
+        <i class="bi bi-save"></i>
         Save Configuration
       </button>
-    </mat-card-actions>
-  </mat-card>
+    </div>
+
+  </div>
 </div>

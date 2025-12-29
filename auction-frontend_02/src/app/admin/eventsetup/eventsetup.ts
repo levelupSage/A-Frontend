@@ -1,15 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { materialModules } from '../../material.imports';
 
 @Component({
   selector: 'app-eventsetup',
+  standalone: true,
   imports: [CommonModule, FormsModule, ...materialModules],
   templateUrl: './eventsetup.html',
   styleUrl: './eventsetup.css',
 })
 export class EventSetup implements OnInit {
+
+  constructor(private snackBar: MatSnackBar) {}
+
   roundTypes = [
     { value: 'qualifier', label: 'Qualifier Round' },
     { value: 'semifinal', label: 'Semi Final' },
@@ -22,7 +27,6 @@ export class EventSetup implements OnInit {
     { value: 'restricted', label: 'Restricted Access' }
   ];
 
-  // Dummy prefilled data
   tournamentName = 'Annual Football Championship';
   tournamentCode = 'AFC2024';
   description = 'The premier football event bringing together top national teams for an exciting competition.';
@@ -36,14 +40,19 @@ export class EventSetup implements OnInit {
   roundDate = '2024-09-10';
   maxParticipants = 16;
   visibility = 'public';
-  form: any;
-  sports: any;
 
   ngOnInit(): void {
     console.log('Dummy data loaded for form preview');
   }
 
   submitForm() {
+
+    // Simple validation
+    if (!this.tournamentName || !this.tournamentCode) {
+      this.openSnackBar('Please fill all required fields', 'error-snackbar');
+      return;
+    }
+
     console.log('Form Data:', {
       tournamentName: this.tournamentName,
       roundName: this.roundName,
@@ -53,7 +62,19 @@ export class EventSetup implements OnInit {
       maxParticipants: this.maxParticipants,
       visibility: this.visibility
     });
-    alert('Form submitted with dummy data (check console)');
+
+    this.openSnackBar(
+      'Event configuration saved successfully',
+      'success-snackbar'
+    );
   }
 
+  private openSnackBar(message: string, panelClass: string) {
+    this.snackBar.open(message, 'Close', {
+      duration: 3000,
+      horizontalPosition: 'right',
+verticalPosition: 'bottom',
+      panelClass: [panelClass]
+    });
+  }
 }
